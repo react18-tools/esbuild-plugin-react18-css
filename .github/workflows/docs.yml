@@ -37,6 +37,7 @@ jobs:
         run: pnpm test
       - name: Generate/update docs
         run: pnpm doc
+        continue-on-error: true
       - name: Setup Git
         run: |
           git config --global user.name "mayank1513"
