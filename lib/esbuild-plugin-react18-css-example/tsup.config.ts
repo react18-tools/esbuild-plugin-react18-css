@@ -9,6 +9,6 @@ export default defineConfig(options => ({
   clean: true,
   bundle: true,
   minify: !options.watch,
-  esbuildPlugins: [react18Plugin(), cssModulePlugin()],
+  esbuildPlugins: [react18Plugin(), cssModulePlugin({ globalPrefix: "hk" })],
   legacyOutput: true,
 }));

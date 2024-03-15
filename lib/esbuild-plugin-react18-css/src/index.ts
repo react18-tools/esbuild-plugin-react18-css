@@ -9,8 +9,12 @@ import { compile } from "sass";
 const uuid = () => (Date.now() * Math.random()).toString(36).slice(0, 8);
 
 interface CSSModulePluginOptions {
+  /** by default name is generated without hash */
   generateScopedName?: string | ((name: string, filename: string, css: string) => string);
+  /** set skipAutoPrefixer to true to disable autoprefixer */
   skipAutoPrefixer?: boolean;
+  /** global CSS class prefix. @defaultValue "" */
+  globalPrefix?: string;
 }
 
 function applyAutoPrefixer(build: PluginBuild, options: CSSModulePluginOptions, write?: boolean) {
@@ -89,12 +93,14 @@ function handleModules(
   }));
 }
 
-const cssPlugin: (options: CSSModulePluginOptions) => Plugin = (options = {}) => ({
+const cssPlugin: (options?: CSSModulePluginOptions) => Plugin = (options = {}) => ({
   name: "esbuild-plugin-react18-css-" + uuid(),
   setup(build): void {
     const write = build.initialOptions.write;
     if (!options.generateScopedName) {
+      const globalPrefix = options.globalPrefix ?? "";
       options.generateScopedName = (name, filename) =>
+        (globalPrefix ? `${globalPrefix}__` : "") +
         `${path.basename(filename).split(".")[0]}__${name}`;
     }
     handleModules(build, options);
