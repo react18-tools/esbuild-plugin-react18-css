@@ -8,7 +8,7 @@ import { compile } from "sass";
 
 const uuid = () => (Date.now() * Math.random()).toString(36).slice(0, 8);
 
-export interface CSSPluginOptions {
+interface CSSPluginOptions {
   /** by default name is generated without hash so that it is easier and reliable for library users to override some CSS */
   generateScopedName?: string | ((className: string, filename: string, css: string) => string);
   /** set skipAutoPrefixer to true to disable autoprefixer */
@@ -139,4 +139,4 @@ const cssPlugin: (options?: CSSPluginOptions) => Plugin = (options = {}) => ({
   },
 });
 
-export default cssPlugin;
+export = cssPlugin;

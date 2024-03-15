@@ -57,6 +57,7 @@
     "autoprefixer",
     "css-module",
     "scss-module",
+    "sass-module",
     "postcss",
     "esbuild",
     "react18",
