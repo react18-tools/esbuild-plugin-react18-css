@@ -36,7 +36,12 @@ jobs:
       - name: Run unit tests
         run: pnpm test
       - name: Generate/update docs
-        run: pnpm doc
+        run: |
+          sed -i -e "s/export = cssPlugin/export default cssPlugin/" ./lib/esbuild-plugin-react18-css/src/index.ts          
+          sed -i -e "s/interface/export interface/" ./lib/esbuild-plugin-react18-css/src/index.ts
+          pnpm doc
+          sed -i -e "s/export default cssPlugin/export = cssPlugin/" ./lib/esbuild-plugin-react18-css/src/index.ts
+          sed -i -e "s/export interface/interface/" ./lib/esbuild-plugin-react18-css/src/index.ts
         continue-on-error: true
       - name: Setup Git
         run: |
