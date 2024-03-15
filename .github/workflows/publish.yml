@@ -10,7 +10,7 @@ jobs:
   publish:
     # Don't run just after creating repo from template
     # Also avoid running after merging set-up PR
-    if: github.run_number > 2 && github.event.repository.owner.login == 'react18-tools'
+    if: github.event.repository.owner.login == 'react18-tools'
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -42,3 +42,12 @@ jobs:
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OWNER: ${{ github.event.repository.owner.login }}
           REPO: ${{ github.event.repository.name }}
+
+      - name: Publish package with a short name
+        continue-on-error: true
+        run: |
+          cd dist
+          sed -i -e "s/.*name.*/\t\"name\": \"r18css\",/" package.json
+          npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
