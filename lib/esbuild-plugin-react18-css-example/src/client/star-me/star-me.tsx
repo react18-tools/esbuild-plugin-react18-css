@@ -1,4 +1,5 @@
 import * as React from "react";
+import styles from "./star-me.module.css";
 
 interface StarMeProps extends React.HTMLAttributes<HTMLButtonElement> {
   gitHubUrl: string;
@@ -15,7 +16,12 @@ export function StarMe({ gitHubUrl, onClick, children, ...props }: StarMeProps) 
     onClick?.(e);
   };
   return (
-    <button data-testid="star-me-h1" onClick={starMe} type="button" {...props}>
+    <button
+      data-testid="star-me-h1"
+      onClick={starMe}
+      type="button"
+      {...props}
+      className={styles.starMe}>
       {children || "Star Me"}
     </button>
   );

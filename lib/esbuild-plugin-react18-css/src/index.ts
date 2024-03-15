@@ -127,6 +127,7 @@ const cssPlugin: (options?: CSSModulePluginOptions) => Plugin = (options = {}) =
   name: "esbuild-plugin-react18-css-" + uuid(),
   setup(build): void {
     const write = build.initialOptions.write;
+    build.initialOptions.write = false;
     if (!options.generateScopedName) {
       const globalPrefix = options.globalPrefix ?? "";
       options.generateScopedName = (name, filename) =>
