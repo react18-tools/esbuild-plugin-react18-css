@@ -21,7 +21,7 @@ export function StarMe({ gitHubUrl, onClick, children, ...props }: StarMeProps) 
       onClick={starMe}
       type="button"
       {...props}
-      className={styles.starMe}>
+      className={[styles.starMe, props.className ?? ""].join(" ")}>
       {children || "Star Me"}
     </button>
   );

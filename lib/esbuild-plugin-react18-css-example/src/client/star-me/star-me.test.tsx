@@ -21,7 +21,7 @@ describe("star-me", () => {
     render(
       <StarMe className={className} gitHubUrl="https://github.com/mayank1513/turborepo-template" />,
     );
-    expect(screen.getByTestId("star-me-h1").className).toBe(className);
+    expect(screen.getByTestId("star-me-h1").className).toContain(className);
   });
 
   test("test popup", ({ expect }) => {
