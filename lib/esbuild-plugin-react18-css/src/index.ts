@@ -33,7 +33,7 @@ function applyAutoPrefixer(build: PluginBuild, options: CSSModulePluginOptions, 
 }
 
 function handleScss(build: PluginBuild) {
-  build.onLoad({ filter: /\.scss$/, namespace: "file" }, args => ({
+  build.onLoad({ filter: /\.s(c|a)ss$/, namespace: "file" }, args => ({
     contents: compile(args.path).css,
     loader: "css",
   }));
@@ -42,7 +42,7 @@ function handleScss(build: PluginBuild) {
 function handleModules(
   build: PluginBuild,
   { generateScopedName }: CSSModulePluginOptions,
-  type: "css" | "scss" = "css",
+  type: "css" | "scss" | "sass" = "css",
 ) {
   const namespace = `${type}-module`;
   const filter = new RegExp(`\\.module\\.${type}$`);
@@ -99,6 +99,7 @@ const cssPlugin: (options: CSSModulePluginOptions) => Plugin = (options = {}) =>
     }
     handleModules(build, options);
     handleModules(build, options, "scss");
+    handleModules(build, options, "sass");
     handleScss(build);
     applyAutoPrefixer(build, options, write);
   },
