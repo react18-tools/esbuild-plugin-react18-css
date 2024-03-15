@@ -1,4 +1,4 @@
-import { Plugin, PluginBuild } from "esbuild";
+import { BuildResult, Plugin, PluginBuild } from "esbuild";
 import fs from "node:fs";
 import path from "node:path";
 import postcss from "postcss";
@@ -17,6 +17,38 @@ interface CSSModulePluginOptions {
   globalPrefix?: string;
 }
 
+function generateCombinedCSS(result: BuildResult) {
+  /** generate combined server and client CSS */
+  const serverRegExp = new RegExp(`server\\${path.sep}index\\.css`);
+  const serverCSSFile = result.outputFiles?.filter(f => f.path.match(serverRegExp))[0];
+
+  const clientRegExp = new RegExp(`client\\${path.sep}index\\.css`);
+  const clientCSSFile = result.outputFiles?.filter(f => f.path.match(clientRegExp))[0];
+
+  if (!serverCSSFile && !clientCSSFile) return;
+
+  const combinedCSS = (clientCSSFile?.text ?? "") + (serverCSSFile?.text ?? "");
+  let indexCSSFile;
+  let indexCSSFilePath: string;
+  if (clientCSSFile) {
+    indexCSSFilePath = clientCSSFile.path.replace(`client${path.sep}`, "");
+    indexCSSFile = result.outputFiles?.filter(f => f.path === indexCSSFilePath)[0];
+  } else {
+    indexCSSFilePath = serverCSSFile?.path.replace(`server${path.sep}`, "") ?? "";
+  }
+
+  console.log({ indexCSSFilePath });
+
+  if (indexCSSFile) indexCSSFile.contents = new TextEncoder().encode(combinedCSS);
+  else
+    result.outputFiles?.push({
+      path: indexCSSFilePath,
+      contents: new TextEncoder().encode(combinedCSS),
+      text: combinedCSS,
+      hash: uuid(),
+    });
+}
+
 function applyAutoPrefixer(build: PluginBuild, options: CSSModulePluginOptions, write?: boolean) {
   build.onEnd(async result => {
     if (!options.skipAutoPrefixer) {
@@ -25,6 +57,8 @@ function applyAutoPrefixer(build: PluginBuild, options: CSSModulePluginOptions, 
         f.contents = new TextEncoder().encode(css);
       }
     }
+
+    generateCombinedCSS(result);
 
     /** assume true if undefined */
     if (write === undefined || write) {
@@ -43,13 +77,9 @@ function handleScss(build: PluginBuild) {
   }));
 }
 
-function handleModules(
-  build: PluginBuild,
-  { generateScopedName }: CSSModulePluginOptions,
-  type: "css" | "scss" | "sass" = "css",
-) {
-  const namespace = `${type}-module`;
-  const filter = new RegExp(`\\.module\\.${type}$`);
+function handleModules(build: PluginBuild, { generateScopedName }: CSSModulePluginOptions) {
+  const namespace = "scss-module";
+  const filter = /\.module\.(sc|sa|c)ss/;
   build.onResolve({ filter, namespace: "file" }, args => ({
     path: `${args.path}#${namespace}`,
     namespace,
@@ -104,8 +134,6 @@ const cssPlugin: (options?: CSSModulePluginOptions) => Plugin = (options = {}) =
         `${path.basename(filename).split(".")[0]}__${name}`;
     }
     handleModules(build, options);
-    handleModules(build, options, "scss");
-    handleModules(build, options, "sass");
     handleScss(build);
     applyAutoPrefixer(build, options, write);
   },

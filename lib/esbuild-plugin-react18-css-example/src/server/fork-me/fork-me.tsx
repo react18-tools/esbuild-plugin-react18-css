@@ -1,5 +1,5 @@
 import * as React from "react";
-import cssClasses from "./fork-me.module.css";
+import cssClasses from "./fork-me.module.scss";
 
 interface ForkMeProps {
   gitHubUrl: string;
