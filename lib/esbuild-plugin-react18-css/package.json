@@ -1,25 +1,25 @@
 {
-  "name": "@mayank1513/fork-me",
+	"name": "esbuild-plugin-react18-css",
   "author": "Mayank Kumar Chaudhari <https://mayank-chaudhari.vercel.app>",
   "private": false,
-  "version": "2.0.1",
+	"version": "0.0.0",
   "description": "An intuitive React.js fork me ribbon component for promoting open source project forks.",
   "main": "./index.ts",
   "types": "./index.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/react18-tools/turborepo-template.git"
+    "url": "git+https://github.com/react18-tools/esbuild-plugin-react18-css.git"
   },
   "bugs": {
-    "url": "https://github.com/react18-tools/turborepo-template/issues"
+    "url": "https://github.com/react18-tools/esbuild-plugin-react18-css/issues"
   },
-  "homepage": "https://github.com/react18-tools/turborepo-template/tree/main/lib/fork-me#readme",
+  "homepage": "https://github.com/react18-tools/esbuild-plugin-react18-css/tree/main/lib/fork-me#readme",
   "sideEffects": false,
   "license": "MIT",
   "scripts": {
     "test": "vitest run --coverage",
     "build": "tsup src && tsc -p tsconfig-build.json && node touchup.js",
-    "doc": "typedoc",
+    "doc": "cp -f ../../README.md README.md && typedoc",
     "publish-package": "cd dist && npm publish --provenance --access public",
     "lint": "eslint ."
   },

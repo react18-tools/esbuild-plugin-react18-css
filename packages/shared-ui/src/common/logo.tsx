@@ -1,5 +1,5 @@
 import type { HTMLProps } from "react";
 
 export function Logo(props: HTMLProps<HTMLElement>) {
-  return <code {...props}>turborepo-template</code>;
+  return <code {...props}>esbuild-plugin-react18-css</code>;
 }

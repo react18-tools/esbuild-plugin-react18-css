@@ -4,8 +4,8 @@
 const fs = require("node:fs");
 const path = require("node:path");
 
-const owner = "mayank1513";
-const repo = "fork-me";
+const owner = "react18-tools";
+const repo = "esbuild-plugin-react18-css";
 const pkgPath = path.resolve(process.cwd(), "lib", repo, "package.json");
 const packageJson = require(pkgPath);
 const ref = packageJson.name;
