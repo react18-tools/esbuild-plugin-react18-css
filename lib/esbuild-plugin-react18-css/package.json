@@ -3,7 +3,7 @@
   "author": "Mayank Kumar Chaudhari <https://mayank-chaudhari.vercel.app>",
   "private": false,
   "version": "0.0.0",
-  "description": "An intuitive React.js fork me ribbon component for promoting open source project forks.",
+  "description": "ESBuild plugin to handle CSS/SCSS modules, autoprefixer, etc.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "repository": {
@@ -53,6 +53,7 @@
     "esbuild-plugin",
     "typescript",
     "javascript",
+    "autoprefixer",
     "css-module",
     "postcss",
     "esbuild",

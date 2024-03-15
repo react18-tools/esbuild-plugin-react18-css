@@ -8,9 +8,9 @@ import { compile } from "sass";
 
 const uuid = () => (Date.now() * Math.random()).toString(36).slice(0, 8);
 
-interface CSSModulePluginOptions {
-  /** by default name is generated without hash */
-  generateScopedName?: string | ((name: string, filename: string, css: string) => string);
+interface CSSPluginOptions {
+  /** by default name is generated without hash so that it is easier and reliable for library users to override some CSS */
+  generateScopedName?: string | ((className: string, filename: string, css: string) => string);
   /** set skipAutoPrefixer to true to disable autoprefixer */
   skipAutoPrefixer?: boolean;
   /** global CSS class prefix. @defaultValue "" */
@@ -47,7 +47,7 @@ function generateCombinedCSS(result: BuildResult) {
     });
 }
 
-function applyAutoPrefixer(build: PluginBuild, options: CSSModulePluginOptions, write?: boolean) {
+function applyAutoPrefixer(build: PluginBuild, options: CSSPluginOptions, write?: boolean) {
   build.onEnd(async result => {
     if (!options.skipAutoPrefixer) {
       for (const f of result.outputFiles?.filter(f => f.path.match(/\.css$/)) || []) {
@@ -75,7 +75,7 @@ function handleScss(build: PluginBuild) {
   }));
 }
 
-function handleModules(build: PluginBuild, { generateScopedName }: CSSModulePluginOptions) {
+function handleModules(build: PluginBuild, { generateScopedName }: CSSPluginOptions) {
   const namespace = "scss-module";
   const filter = /\.module\.(sc|sa|c)ss/;
   build.onResolve({ filter, namespace: "file" }, args => ({
@@ -121,7 +121,7 @@ function handleModules(build: PluginBuild, { generateScopedName }: CSSModulePlug
   }));
 }
 
-const cssPlugin: (options?: CSSModulePluginOptions) => Plugin = (options = {}) => ({
+const cssPlugin: (options?: CSSPluginOptions) => Plugin = (options = {}) => ({
   name: "esbuild-plugin-react18-css-" + uuid(),
   setup(build): void {
     const write = build.initialOptions.write;
