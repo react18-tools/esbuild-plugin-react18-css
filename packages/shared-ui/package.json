@@ -2,7 +2,7 @@
   "name": "shared-ui",
   "author": "Mayank Kumar Chaudhari <https://mayank-chaudhari.vercel.app>",
   "private": true,
-	"version": "0.0.0",
+  "version": "0.0.0",
   "description": "Shared UI Package",
   "main": "./index.ts",
   "types": "./index.ts",
@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "@mayank1513/fork-me": "latest",
-		"esbuild-plugin-react18-css": "workspace:*",
+    "esbuild-plugin-react18-css-example": "workspace:*",
     "@types/node": "^20.11.22",
     "@types/react": "^18.2.60",
     "@types/react-dom": "^18.2.19",
