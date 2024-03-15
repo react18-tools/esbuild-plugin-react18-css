@@ -32,6 +32,8 @@ jobs:
       - run: npm i -g pnpm && pnpm i
         name: Install dependencies
         # fail and not publish if any of the unit tests are failing
+      - name: Build examples
+        run: pnpm build --filter esbuild-plugin-react18-css-example
       - name: Test
         run: pnpm test
       - name: Create release and publish to NPM

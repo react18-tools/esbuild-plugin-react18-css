@@ -23,6 +23,8 @@ jobs:
           node-version: 20
       - run: npm i -g pnpm && pnpm i
         name: Install dependencies
+      - name: Build examples
+        run: pnpm build --filter esbuild-plugin-react18-css-example
       - name: Test
         run: npm test
       - run: git status && git clean -f -d && git status
