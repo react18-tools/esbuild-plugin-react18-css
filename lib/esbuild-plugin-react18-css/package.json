@@ -36,14 +36,14 @@
     "sass": "1"
   },
   "devDependencies": {
-    "@types/node": "^20.11.22",
-    "@vitest/coverage-v8": "^1.3.1",
+    "@types/node": "^20.11.28",
+    "@vitest/coverage-v8": "^1.4.0",
     "esbuild": "^0.20.2",
     "tiny-glob": "^0.2.9",
     "tsup": "^8.0.2",
-    "typedoc": "^0.25.9",
+    "typedoc": "^0.25.12",
     "typescript": "^5.4.2",
-    "vitest": "^1.3.1"
+    "vitest": "^1.4.0"
   },
   "funding": {
     "type": "github",

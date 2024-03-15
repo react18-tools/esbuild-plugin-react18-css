@@ -6,7 +6,7 @@ import cssPlugin from "../src";
 import glob from "tiny-glob";
 
 describe("Test plugin with esbuild", async () => {
-  const exampleBuildDir = path.resolve(process.cwd(), "test-build1");
+  const exampleBuildDir = path.resolve(__dirname, "..", "test-build1");
 
   beforeAll(async () => {
     await esbuild.build({
@@ -34,7 +34,7 @@ describe("Test plugin with esbuild", async () => {
 });
 
 describe("Test plugin with esbuild and options", async () => {
-  const exampleBuildDir = path.resolve(process.cwd(), "test-build");
+  const exampleBuildDir = path.resolve(__dirname, "..", "test-build");
 
   beforeAll(async () => {
     await esbuild.build({
@@ -68,7 +68,7 @@ describe("Test plugin with esbuild and options", async () => {
 });
 
 describe("Only server styles", () => {
-  const exampleBuildDir = path.resolve(process.cwd(), "test-build1");
+  const exampleBuildDir = path.resolve(__dirname, "..", "test-build1");
 
   beforeAll(async () => {
     await esbuild.build({

@@ -5,7 +5,8 @@ import { describe, test } from "vitest";
 /** testing tsup example - make sure it is build before running this test suit */
 describe("Test plugin with tsup", () => {
   const exampleBuildDir = path.resolve(
-    process.cwd(),
+    __dirname,
+    "..",
     "..",
     "esbuild-plugin-react18-css-example",
     "dist",
