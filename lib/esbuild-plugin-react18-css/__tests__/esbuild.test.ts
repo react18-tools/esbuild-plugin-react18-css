@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import { describe, test, beforeAll, afterAll } from "vitest";
+import { describe, test, beforeAll } from "vitest";
 import esbuild from "esbuild";
 import cssPlugin from "../src";
 import glob from "tiny-glob";
@@ -28,7 +28,7 @@ describe("Test plugin with esbuild", async () => {
   });
 
   test("Should contain -moz-", ({ expect }) => {
-    const test = fs.readFileSync(path.resolve(exampleBuildDir, "server", "index.css"), "utf-8");
+    const test = fs.readFileSync(path.resolve(exampleBuildDir, "index.css"), "utf-8");
     expect(/-moz-/.test(test)).toBe(true);
   });
 });
@@ -64,5 +64,33 @@ describe("Test plugin with esbuild and options", async () => {
   test("Should not contain -moz-", ({ expect }) => {
     const test = fs.readFileSync(path.resolve(exampleBuildDir, "index.css"), "utf-8");
     expect(/-moz-/.test(test)).toBe(false);
+  });
+});
+
+describe("Only server styles", () => {
+  const exampleBuildDir = path.resolve(process.cwd(), "test-build1");
+
+  beforeAll(async () => {
+    await esbuild.build({
+      format: "cjs",
+      target: "es2019",
+      sourcemap: false,
+      bundle: true,
+      minify: true,
+      plugins: [cssPlugin()],
+      entryPoints: await glob("../example2/src/**/*.*"),
+      external: ["react", "react-dom"],
+      outdir: "./test-build1",
+    });
+  });
+
+  test(`Test CSS Class Hash`, ({ expect }) => {
+    const text = fs.readFileSync(path.resolve(exampleBuildDir, "server", "index.js"), "utf-8");
+    expect(/{fork:["'][^"']*fork[^"']*["']/.test(text)).toBe(true);
+  });
+
+  test("Should contain -moz-", ({ expect }) => {
+    const test = fs.readFileSync(path.resolve(exampleBuildDir, "index.css"), "utf-8");
+    expect(/-moz-/.test(test)).toBe(true);
   });
 });

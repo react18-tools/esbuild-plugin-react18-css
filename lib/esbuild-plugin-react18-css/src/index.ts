@@ -37,8 +37,6 @@ function generateCombinedCSS(result: BuildResult) {
     indexCSSFilePath = serverCSSFile?.path.replace(`server${path.sep}`, "") ?? "";
   }
 
-  console.log({ indexCSSFilePath });
-
   if (indexCSSFile) indexCSSFile.contents = new TextEncoder().encode(combinedCSS);
   else
     result.outputFiles?.push({
