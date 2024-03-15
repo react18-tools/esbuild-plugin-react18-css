@@ -18,7 +18,7 @@
   "license": "MIT",
   "scripts": {
     "test": "vitest run --coverage",
-    "build": "tsup src && tsc -p tsconfig-build.json && node touchup.js",
+    "build": "tsup src && tsc -p tsconfig-build.json",
     "publish-package": "cd dist && npm publish --provenance --access public",
     "lint": "eslint ."
   },
