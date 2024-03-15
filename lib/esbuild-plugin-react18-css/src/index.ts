@@ -121,17 +121,18 @@ function handleModules(build: PluginBuild, { generateScopedName }: CSSPluginOpti
   }));
 }
 
+function resolveScopedName(options: CSSPluginOptions) {
+  const globalPrefix = options.globalPrefix ?? "";
+  options.generateScopedName = (name, filename) =>
+    (globalPrefix ? `${globalPrefix}__` : "") + `${path.basename(filename).split(".")[0]}__${name}`;
+}
+
 const cssPlugin: (options?: CSSPluginOptions) => Plugin = (options = {}) => ({
   name: "esbuild-plugin-react18-css-" + uuid(),
   setup(build): void {
     const write = build.initialOptions.write;
     build.initialOptions.write = false;
-    if (!options.generateScopedName) {
-      const globalPrefix = options.globalPrefix ?? "";
-      options.generateScopedName = (name, filename) =>
-        (globalPrefix ? `${globalPrefix}__` : "") +
-        `${path.basename(filename).split(".")[0]}__${name}`;
-    }
+    if (!options.generateScopedName) resolveScopedName(options);
     handleModules(build, options);
     handleScss(build);
     applyAutoPrefixer(build, options, write);
