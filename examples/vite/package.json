@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@mayank1513/fork-me": "^2.0.1",
+    "@mayank1513/fork-me": "^2.1.0",
     "esbuild-plugin-react18-css-example": "workspace:*",
     "nextjs-themes": "^3.1.0",
     "react": "^18.2.0",
