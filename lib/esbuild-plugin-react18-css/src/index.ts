@@ -61,7 +61,9 @@ function applyAutoPrefixer(build: PluginBuild, options: CSSPluginOptions, write?
     generateCombinedCSS(result);
 
     if (!options.keepModules) {
-      result.outputFiles = result.outputFiles?.filter(file => !file.path.match(/\.module\.css$/));
+      result.outputFiles = result.outputFiles?.filter(
+        file => !file.path.match(/\.module\.(css|js)$/),
+      );
     }
 
     /** assume true if undefined */
