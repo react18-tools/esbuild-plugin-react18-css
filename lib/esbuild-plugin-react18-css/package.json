@@ -2,7 +2,7 @@
   "name": "esbuild-plugin-react18-css",
   "author": "Mayank Kumar Chaudhari <https://mayank-chaudhari.vercel.app>",
   "private": false,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "ESBuild plugin to handle CSS/SCSS modules, autoprefixer, etc.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -28,12 +28,6 @@
     "postcss": "^8.4.35",
     "postcss-modules": "^6.0.0",
     "sass": "^1.72.0"
-  },
-  "peerDependencies": {
-    "autoprefixer": "10",
-    "postcss": "8",
-    "postcss-modules": "6",
-    "sass": "1"
   },
   "devDependencies": {
     "@types/node": "^20.11.28",

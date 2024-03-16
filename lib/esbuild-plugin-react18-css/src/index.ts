@@ -15,6 +15,8 @@ interface CSSPluginOptions {
   skipAutoPrefixer?: boolean;
   /** global CSS class prefix. @defaultValue "" */
   globalPrefix?: string;
+  /** If you want to keep .module.css files */
+  keepModules?: boolean;
 }
 
 function generateCombinedCSS(result: BuildResult) {
@@ -57,6 +59,10 @@ function applyAutoPrefixer(build: PluginBuild, options: CSSPluginOptions, write?
     }
 
     generateCombinedCSS(result);
+
+    if (!options.keepModules) {
+      result.outputFiles = result.outputFiles?.filter(file => !file.path.match(/\.module\.css$/));
+    }
 
     /** assume true if undefined */
     if (write === undefined || write) {

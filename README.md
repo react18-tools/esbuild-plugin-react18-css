@@ -74,6 +74,8 @@ interface CSSPluginOptions {
   skipAutoPrefixer?: boolean;
   /** global CSS class prefix. @defaultValue "" */
   globalPrefix?: string;
+  /** If you want to keep .module.css files */
+  keepModules?: boolean;
 }
 ```
 
