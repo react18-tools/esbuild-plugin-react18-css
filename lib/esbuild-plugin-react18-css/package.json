@@ -29,12 +29,6 @@
     "postcss-modules": "^6.0.0",
     "sass": "^1.72.0"
   },
-  "peerDependencies": {
-    "autoprefixer": "10",
-    "postcss": "8",
-    "postcss-modules": "6",
-    "sass": "1"
-  },
   "devDependencies": {
     "@types/node": "^20.11.28",
     "@vitest/coverage-v8": "^1.4.0",
