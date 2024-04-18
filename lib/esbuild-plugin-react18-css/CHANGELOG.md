@@ -1,5 +1,11 @@
 # esbuild-plugin-react18-css
 
+## 0.0.3
+
+### Patch Changes
+
+- Upgrade dependencies
+
 ## 0.0.2
 
 ### Patch Changes
