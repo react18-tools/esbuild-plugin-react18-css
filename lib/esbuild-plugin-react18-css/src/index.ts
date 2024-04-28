@@ -6,19 +6,25 @@ import postcssModules from "postcss-modules";
 import autoPrefixer from "autoprefixer";
 import { compile } from "sass";
 
+/** Craete UUID */
 const uuid = () => (Date.now() * Math.random()).toString(36).slice(0, 8);
 
 interface CSSPluginOptions {
-  /** by default name is generated without hash so that it is easier and reliable for library users to override some CSS */
-  generateScopedName?: string | ((className: string, filename: string, css: string) => string);
+  /**
+   * By default name is generated without hash so that it is easier and reliable for library users to override some CSS.
+   * Refer [loader-utils docs](https://github.com/webpack/loader-utils?tab=readme-ov-file#interpolatename) for more options
+   * @defaultValue A function that generates name similar to [name]__[local] but without .module
+   */
+  generateScopedName?: string | ((className: string, path: string, css: string) => string);
   /** set skipAutoPrefixer to true to disable autoprefixer */
   skipAutoPrefixer?: boolean;
-  /** global CSS class prefix. @defaultValue "" */
+  /** global CSS class prefix. @defaultValue undefined */
   globalPrefix?: string;
-  /** If you want to keep .module.css files */
+  /** If you want to keep .module.css files. @defaultValue undefined */
   keepModules?: boolean;
 }
 
+/** Combine client and server CSS */
 function generateCombinedCSS(result: BuildResult) {
   /** generate combined server and client CSS */
   const serverRegExp = new RegExp(`server\\${path.sep}index\\.css`);
