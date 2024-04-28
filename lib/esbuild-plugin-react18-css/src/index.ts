@@ -141,6 +141,7 @@ function resolveScopedName(options: CSSPluginOptions) {
     (globalPrefix ? `${globalPrefix}__` : "") + `${path.basename(filename).split(".")[0]}__${name}`;
 }
 
+/** @source */
 const cssPlugin: (options?: CSSPluginOptions) => Plugin = (options = {}) => ({
   name: "esbuild-plugin-react18-css-" + uuid(),
   setup(build): void {
