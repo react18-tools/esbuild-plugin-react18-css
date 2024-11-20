@@ -9,7 +9,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,md,css,scss}\""
   },
   "devDependencies": {
-    "@changesets/cli": "^2.27.9",
+    "@changesets/cli": "^2.27.10",
     "eslint": "^9.15.0",
     "prettier": "^3.3.3",
     "tsconfig": "workspace:*",
