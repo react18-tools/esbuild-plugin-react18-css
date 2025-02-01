@@ -13,7 +13,7 @@
     "eslint": "^9.19.0",
     "prettier": "^3.4.2",
     "tsconfig": "workspace:*",
-    "turbo": "^2.3.4"
+    "turbo": "^2.4.0"
   },
   "name": "esbuild-plugin-react18-css",
   "packageManager": "pnpm@9.1.4"
