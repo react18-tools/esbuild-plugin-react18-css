@@ -46,10 +46,10 @@ jobs:
         name: Install dependencies
       - run: git stash --include-untracked
         name: clean up working directory
-      - name: Generate/update docs
-        run: pnpm doc
-      - name: Save docs back to repo
-        run: git add . && git commit -m "upgrade deps && docs [skip ci]" && git push origin main
+      # - name: Generate/update docs
+      #   run: pnpm doc
+      # - name: Save docs back to repo
+      #   run: git add . && git commit -m "upgrade deps && docs [skip ci]" && git push origin main
       - name: Update website
         continue-on-error: true
         run: |
