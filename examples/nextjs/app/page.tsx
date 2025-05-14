@@ -1,3 +1,3 @@
-export default function Home(): JSX.Element {
+export default function Home() {
   return <h1>Next.js Example</h1>;
 }
