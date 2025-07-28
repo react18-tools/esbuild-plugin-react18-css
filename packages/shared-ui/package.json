@@ -18,7 +18,7 @@
     "eslint-config-custom": "workspace:*",
     "next": "^15.4.4",
     "nextjs-themes": "^4.0.6",
-    "react": "^19.1.0",
+    "react": "^19.1.1",
     "tsconfig": "workspace:*",
     "typescript": "5.8.3"
   },
