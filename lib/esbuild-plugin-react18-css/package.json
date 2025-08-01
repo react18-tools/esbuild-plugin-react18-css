@@ -42,7 +42,7 @@
     "typedoc-plugin-missing-exports": "^4.0.0",
     "typedoc-plugin-rename-defaults": "^0.7.3",
     "typedoc-plugin-zod": "^1.4.2",
-    "typescript": "^5.8.3",
+    "typescript": "^5.9.2",
     "vitest": "^3.2.4"
   },
   "funding": {

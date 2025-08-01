@@ -20,7 +20,7 @@
     "nextjs-themes": "^4.0.6",
     "react": "^19.1.1",
     "tsconfig": "workspace:*",
-    "typescript": "5.8.3"
+    "typescript": "5.9.2"
   },
   "dependencies": {
     "eslint": "^9.32.0"
