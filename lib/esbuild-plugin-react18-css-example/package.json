@@ -27,7 +27,7 @@
     "@turbo/gen": "^2.5.8",
     "@types/node": "^24.7.2",
     "@types/react": "^19.2.2",
-    "@types/react-dom": "^19.2.1",
+    "@types/react-dom": "^19.2.2",
     "@vitejs/plugin-react": "^5.0.4",
     "@vitest/coverage-v8": "^3.2.4",
     "esbuild-plugin-css-module": "^0.1.0",
