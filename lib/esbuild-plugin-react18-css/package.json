@@ -33,7 +33,7 @@
     "@types/node": "^24.9.2",
     "@vitest/coverage-v8": "^4.0.5",
     "esbuild": "^0.25.11",
-    "octokit": "^5.0.4",
+    "octokit": "^5.0.5",
     "tiny-glob": "^0.2.9",
     "tsup": "^8.5.0",
     "typedoc": "^0.28.14",
