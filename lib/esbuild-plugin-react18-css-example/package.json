@@ -29,7 +29,7 @@
     "@types/react": "^19.2.6",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.1",
-    "@vitest/coverage-v8": "^4.0.12",
+    "@vitest/coverage-v8": "^4.0.13",
     "esbuild-plugin-css-module": "^0.1.0",
     "esbuild-plugin-react18": "^0.2.6",
     "esbuild-plugin-react18-css": "workspace:*",
@@ -42,7 +42,7 @@
     "typedoc": "^0.28.14",
     "typescript": "^5.9.3",
     "vite-tsconfig-paths": "^5.1.4",
-    "vitest": "^4.0.12"
+    "vitest": "^4.0.13"
   },
   "peerDependencies": {
     "@types/react": "16.8 - 18",
