@@ -32,7 +32,7 @@
   "devDependencies": {
     "@types/node": "^24.10.1",
     "@vitest/coverage-v8": "^4.0.15",
-    "esbuild": "^0.27.0",
+    "esbuild": "^0.27.1",
     "octokit": "^5.0.5",
     "tiny-glob": "^0.2.9",
     "tsup": "^8.5.1",
