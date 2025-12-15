@@ -23,7 +23,7 @@
     "lint": "eslint ."
   },
   "devDependencies": {
-    "@testing-library/react": "^16.3.0",
+    "@testing-library/react": "^16.3.1",
     "@turbo/gen": "^2.6.3",
     "@types/node": "^25.0.2",
     "@types/react": "^19.2.7",
