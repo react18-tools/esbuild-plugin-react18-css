@@ -24,7 +24,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "autoprefixer": "^10.4.22",
+    "autoprefixer": "^10.4.23",
     "postcss": "^8.5.6",
     "postcss-modules": "^6.0.1",
     "sass": "^1.96.0"
