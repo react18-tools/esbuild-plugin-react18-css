@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "@types/node": "^25.0.2",
-    "@vitest/coverage-v8": "^4.0.15",
+    "@vitest/coverage-v8": "^4.0.16",
     "esbuild": "^0.27.1",
     "octokit": "^5.0.5",
     "tiny-glob": "^0.2.9",
@@ -43,7 +43,7 @@
     "typedoc-plugin-rename-defaults": "^0.7.3",
     "typedoc-plugin-zod": "^1.4.3",
     "typescript": "^5.9.3",
-    "vitest": "^4.0.15"
+    "vitest": "^4.0.16"
   },
   "funding": {
     "type": "github",
