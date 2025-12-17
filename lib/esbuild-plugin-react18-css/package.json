@@ -30,9 +30,9 @@
     "sass": "^1.97.0"
   },
   "devDependencies": {
-    "@types/node": "^25.0.2",
+    "@types/node": "^25.0.3",
     "@vitest/coverage-v8": "^4.0.16",
-    "esbuild": "^0.27.1",
+    "esbuild": "^0.27.2",
     "octokit": "^5.0.5",
     "tiny-glob": "^0.2.9",
     "tsup": "^8.5.1",
