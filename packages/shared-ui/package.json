@@ -16,9 +16,9 @@
     "@types/react-dom": "^19.2.3",
     "esbuild-plugin-react18-css-example": "workspace:*",
     "eslint-config-custom": "workspace:*",
-    "next": "^16.1.4",
+    "next": "^16.1.5",
     "nextjs-themes": "^4.0.6",
-    "react": "^19.2.3",
+    "react": "^19.2.4",
     "tsconfig": "workspace:*",
     "typescript": "5.9.3"
   },
