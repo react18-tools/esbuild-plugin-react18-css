@@ -34,7 +34,7 @@
     "esbuild-plugin-react18": "^0.2.6",
     "esbuild-plugin-react18-css": "workspace:*",
     "eslint-config-custom": "workspace:*",
-    "jsdom": "^27.4.0",
+    "jsdom": "^28.0.0",
     "octokit": "^5.0.5",
     "react": "^19.2.4",
     "tsconfig": "workspace:*",
