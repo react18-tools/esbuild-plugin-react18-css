@@ -23,6 +23,6 @@
     "typescript": "5.9.3"
   },
   "dependencies": {
-    "eslint": "^9.39.2"
+    "eslint": "^10.0.0"
   }
 }
