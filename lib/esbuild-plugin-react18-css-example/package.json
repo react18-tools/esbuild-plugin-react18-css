@@ -41,7 +41,7 @@
     "tsup": "^8.5.1",
     "typedoc": "^0.28.16",
     "typescript": "^5.9.3",
-    "vite-tsconfig-paths": "^6.0.5",
+    "vite-tsconfig-paths": "^6.1.0",
     "vitest": "^4.0.18"
   },
   "peerDependencies": {
